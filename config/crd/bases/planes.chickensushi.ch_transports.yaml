@@ -1,0 +1,63 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  creationTimestamp: null
+  name: transports.planes.chickensushi.ch
+spec:
+  group: planes.chickensushi.ch
+  names:
+    kind: Transport
+    plural: transports
+  scope: ""
+  subresources:
+    status: {}
+  validation:
+    openAPIV3Schema:
+      description: Transport is the Schema for the transports API
+      properties:
+        apiVersion:
+          description: 'APIVersion defines the versioned schema of this representation
+            of an object. Servers should convert recognized schemas to the latest
+            internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+          type: string
+        kind:
+          description: 'Kind is a string value representing the REST resource this
+            object represents. Servers may infer this from the endpoint the client
+            submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+          type: string
+        metadata:
+          type: object
+        spec:
+          description: TransportSpec defines the desired state of Transport
+          properties:
+            destination:
+              description: Destination of the flight
+              type: string
+            image:
+              description: Image to use of the flight
+              type: string
+            schedule:
+              description: Schedule of the flight
+              type: string
+          required:
+          - destination
+          - image
+          - schedule
+          type: object
+        status:
+          description: TransportStatus defines the observed state of Transport
+          type: object
+      type: object
+  version: v1beta1
+  versions:
+  - name: v1beta1
+    served: true
+    storage: true
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

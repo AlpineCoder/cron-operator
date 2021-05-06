@@ -1,0 +1,11 @@
+domain: chickensushi.ch
+layout: go.kubebuilder.io/v2
+projectName: cron-operator
+repo: github.com/AlpineCoder/cron-operator
+resources:
+- group: planes
+  kind: Transport
+  version: v1beta1
+version: 3-alpha
+plugins:
+  go.sdk.operatorframework.io/v2-alpha: {}

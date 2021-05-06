@@ -1,0 +1,24 @@
+# permissions for end users to edit transports.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: transport-editor-role
+rules:
+- apiGroups:
+  - planes.chickensushi.ch
+  resources:
+  - transports
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - planes.chickensushi.ch
+  resources:
+  - transports/status
+  verbs:
+  - get

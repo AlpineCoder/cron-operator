@@ -1,0 +1,4 @@
+## Append samples you want in your CSV to this file as resources ##
+resources:
+- planes_v1beta1_transport.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples
